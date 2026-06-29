@@ -215,7 +215,7 @@ Crear un archivo `.env` dentro de la carpeta **backend**.
 DB_HOST=localhost
 DB_PORT=5432
 DB_USER=postgres
-DB_PASSWORD=tu_contraseña
+DB_PASSWORD=123628
 DB_NAME=restaurante
 PORT=3001
 ```
