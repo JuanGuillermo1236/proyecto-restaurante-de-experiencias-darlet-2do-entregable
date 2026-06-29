@@ -1,6 +1,5 @@
 # 🍽️ D'Arlet - Restaurante de Experiencias Gastronómicas del Perú
 
-🔗 Demo en vivo: *(Agregar enlace cuando publiques el proyecto en Vercel o Netlify)*
 
 Aplicación web desarrollada como proyecto del curso de Desarrollo Web. Permite a los usuarios explorar experiencias gastronómicas representativas de las tres regiones del Perú (Costa, Sierra y Selva), visualizar contenido multimedia y realizar reservas mediante un formulario conectado a una base de datos PostgreSQL.
 
@@ -236,7 +235,7 @@ PORT=3001
 
 ---
 
-# 👨‍💻 Autor
+# 👨‍💻 Autores
 
 **Juan Guillermo Mamani , Lionel Stiven Aragon y Joaquin Andre Gatica**
 
