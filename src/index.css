@@ -1,0 +1,584 @@
+/* ===================================================
+   DI LIONEL - SISTEMA DE ESTILOS UNIFICADO
+   =================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@300;400&display=swap');
+
+/* ---- VARIABLES GLOBALES ---- */
+:root {
+    --gold: linear-gradient(45deg, #8A6E2F, #D4AF37, #F7EF8A, #D4AF37, #8A6E2F);
+    --black-m: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #050505 100%);
+    --font-p: 'Playfair Display', serif;
+    --color-gold: #D4AF37;
+}
+
+/* ---- RESET ---- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: 0px;
+    overflow-x: hidden;
+
+}
+
+
+html, body {
+    height: 100%;
+}
+
+/* ---- BASE DEL BODY ---- */
+body {
+    background: var(--black-m) fixed;
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* ---- TIPOGRAFÍA GENERAL ---- */
+/* Times New Roman solo para párrafos y listas de contenido editorial */
+p,
+li,
+span {
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1.6;
+}
+
+ol {
+    padding-left: 20px;
+    margin-top: 15px;
+}
+
+/* ===================================================
+   NAV / HEADER
+   =================================================== */
+header {
+    background-color: rgba(0, 0, 0, 0.95);
+    padding: 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 3px solid;
+    border-image: var(--gold) 1;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: 40px;
+}
+
+nav ul li a {
+    color: var(--color-gold);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    font-family: 'Lato', sans-serif; /* Anula Times New Roman para la nav */
+}
+
+/* ===================================================
+   TÍTULOS
+   =================================================== */
+h1 {
+    background: var(--gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: var(--font-p);
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    text-align: center;
+    margin: 10px 20px;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+}
+
+h2 {
+
+    text-align: center;
+    color: var(--color-gold);
+    margin: 40px 0;
+    font-family: var(--font-p);
+    text-transform: uppercase;
+
+} 
+
+#subtitulo {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #888;
+    margin-bottom: 50px;
+    padding: 0 20px;
+}
+
+/* ===================================================
+   INDEX — TARJETAS DE REGIONES (negro/dorado)
+   =================================================== */
+.regiones {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px 80px;
+}
+
+.region-card {
+    background: #000;
+    border: 2px solid;
+    border-image: var(--gold) 1;
+    transition: 0.4s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.region-card a {
+    text-decoration: none;
+}
+
+.region-card img,
+.region-card video {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+.region-info {
+    padding: 25px;
+    color: var(--color-gold);
+}
+
+.region-info h3 {
+    font-family: var(--font-p);
+    margin-bottom: 15px;
+    color: var(--color-gold);
+}
+
+.region-info p {
+    color: #e0e0e0;
+    font-size: 0.95rem;
+}
+
+/* ===================================================
+   INDEX — VARIANTE PARA PÁGINAS DE PLATOS
+   Activada con <body class="body-platos">
+   =================================================== */
+.body-platos .region-card {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    border-image: none;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.body-platos .region-card img,
+.body-platos .region-card video {
+    display: block;
+    height: 250px;
+    width: calc(100% - 30px);
+    margin: 15px auto 0;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.body-platos .region-info {
+    text-align: left;
+    padding: 25px;
+}
+
+.body-platos .region-info h3 { color: #4E342E; }
+.body-platos .region-info p  { color: #666; }
+
+/* ===================================================
+   SECCIÓN DE HISTORIA (filas alternadas con multimedia)
+   =================================================== */
+.contenedor-historia {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.fila-historia {
+    background: rgba(15, 15, 15, 0.9);
+    border: 1px solid var(--color-gold);
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.fila-historia.invertida {
+    flex-direction: row-reverse;
+}
+
+.multimedia-historia {
+    flex: 1;
+    width: 40%;
+    min-width: 300px;
+    min-height: 250px;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.texto-historia {
+    flex: 1.2;
+    padding: 30px 50px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.texto-historia h3 {
+    color: var(--color-gold);
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    font-family: var(--font-p);
+}
+
+/* ===================================================
+   SECCIÓN DE RECOMENDACIONES
+   (Igual que historia pero con ancho máximo menor)
+   =================================================== */
+.contenedor-recomendaciones {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Las filas y multimedia dentro de recomendaciones
+   reutilizan .fila-historia y .multimedia-historia sin duplicar reglas */
+
+/* ===================================================
+   PANTALLAS DE PLATO COMPLETO (sierra, costa, selva)
+   Layout de pantalla dividida con scroll-snap
+   =================================================== */
+.pantalla-dividida {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    align-items: stretch;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    overflow: hidden;
+}
+
+.pantalla-dividida.invertida {
+    flex-direction: row-reverse;
+}
+
+/* Contenedor del lado de la imagen/video */
+.lado-imagen {
+    flex: 1.2;
+    height: 100%;
+    min-height: 100vh;
+    overflow: hidden; /* Necesario para que el video no se desborde */
+    position: relative;
+}
+
+/* El video ocupa todo el contenedor .lado-imagen */
+.lado-imagen video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Contenedor del lado del texto */
+.lado-texto {
+    flex: 1;
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8% 4.2%;
+    background-color: #0f0f0f;
+}
+
+.contenedor-info {
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+}
+
+/* ---- BOTÓN DE RESERVA ---- */
+.boton-reserva {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 28px;
+    border: 1px solid var(--color-gold);
+    color: var(--color-gold);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    background: transparent;
+    transition: all 0.4s ease;
+    font-family: 'Lato', sans-serif; /* Anula Times New Roman para el botón */
+}
+
+.boton-reserva:visited {
+    color: var(--color-gold);
+}
+
+.boton-reserva:hover {
+    background-color: var(--color-gold);
+    color: #000 !important;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+/* ===================================================
+   FOOTER
+   =================================================== */
+footer {
+    background: #000;
+    padding: 40px;
+    border-top: 2px solid;
+    border-image: var(--gold) 1;
+    text-align: center;
+    color: #666;
+}
+
+/* ===================================================
+   RESPONSIVO
+   =================================================== */
+@media (max-width: 900px) {
+    .regiones {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .fila-historia,
+    .fila-historia.invertida {
+        flex-direction: column;
+    }
+
+    .multimedia-historia {
+        width: 100%;
+        height: 200px;
+    }
+
+    .pantalla-dividida,
+    .pantalla-dividida.invertida {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .lado-imagen,
+    .lado-texto {
+        min-height: 50vh;
+    }
+}
+/* ===================================================
+   ESTILOS PARA PRECIO EN TARJETAS (index regional)
+   =================================================== */
+.precio-card {
+    color: var(--color-gold);
+    font-family: var(--font-p);
+    font-size: 1rem;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+/* ===================================================
+   CTA REGIÓN (botón centrado en páginas de índice)
+   =================================================== */
+.cta-region {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.boton-grande {
+    padding: 16px 40px;
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+}
+
+/* ===================================================
+   LISTA PREMIUM (historia e índices regionales)
+   =================================================== */
+.lista-premium {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.lista-premium li {
+    padding: 6px 0;
+    color: #ccc;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+    font-size: 0.95rem;
+}
+
+.lista-premium li::before {
+    content: "— ";
+    color: var(--color-gold);
+}
+
+/* ===================================================
+   PÁGINA DE RESERVAS
+   =================================================== */
+
+/* Banner superior */
+.banner-reserva {
+    text-align: center;
+    padding: 100px 20px 60px;
+    background: linear-gradient(180deg, rgba(10,10,10,1) 0%, rgba(20,20,20,1) 100%);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.banner-reserva h1 {
+    margin-bottom: 20px;
+}
+
+.banner-reserva p {
+    color: var(--color-gold);
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 3px;
+    font-size: 1rem;
+    font-style: normal;
+}
+
+/* Sección del formulario */
+.seccion-formulario {
+    padding: 80px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.contenedor-formulario {
+    background: rgba(15, 15, 15, 0.95);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 60px;
+}
+
+.contenedor-formulario h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.texto-formulario {
+    color: #888;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 0.95rem;
+}
+
+/* Filas de inputs */
+.fila-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* Inputs, selects y textarea */
+.contenedor-formulario input,
+.contenedor-formulario select,
+.contenedor-formulario textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: #fff;
+    padding: 14px 18px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.contenedor-formulario input::placeholder,
+.contenedor-formulario textarea::placeholder {
+    color: #555;
+}
+
+.contenedor-formulario input:focus,
+.contenedor-formulario select:focus,
+.contenedor-formulario textarea:focus {
+    border-color: var(--color-gold);
+    background: rgba(212, 175, 55, 0.04);
+}
+
+.contenedor-formulario select {
+    cursor: pointer;
+    color: #555;
+}
+
+.contenedor-formulario select option {
+    background: #111;
+    color: #fff;
+}
+
+.contenedor-formulario textarea {
+    display: block;
+    width: 100%;
+    min-height: 140px;
+    resize: vertical;
+    margin-bottom: 30px;
+}
+
+/* Botón submit */
+.contenedor-formulario button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    background: transparent;
+    border: 1px solid var(--color-gold);
+    color: var(--color-gold);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.85rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.contenedor-formulario button[type="submit"]:hover {
+    background: var(--color-gold);
+    color: #000;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+/* Responsive reservas */
+@media (max-width: 768px) {
+    .fila-inputs {
+        grid-template-columns: 1fr;
+    }
+
+    .contenedor-formulario {
+        padding: 30px 20px;
+    }
+
+    .banner-reserva {
+        padding: 80px 20px 40px;
+    }
+}
